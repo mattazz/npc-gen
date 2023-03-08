@@ -28,12 +28,12 @@ class ProfileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: db.fName[this.randomNum(db.fName.length)] + ' ' + db.lName[this.randomNum(db.lName.length)],
-      age: this.randomNum(100),
-      class: db.classRPG[this.randomNum(db.classRPG.length)],
+      name: db.fName[this.randomNum(0,db.fName.length)] + ' ' + db.lName[this.randomNum(0,db.lName.length)],
+      age: this.randomNum(18, 100),
+      class: db.classRPG[this.randomNum(0,db.classRPG.length)],
       history: '',
-      archetype: db.archetype[this.randomNum(db.archetype.length)],
-      quirks: db.quirks[this.randomNum(db.quirks.length)],
+      archetype: db.archetype[this.randomNum(0,db.archetype.length)],
+      quirks: db.quirks[this.randomNum(0,db.quirks.length)],
       image: 'https://phoenixdex.alteredorigin.net/images/characters/character-placeholder.png'
     }
   }
@@ -68,8 +68,12 @@ class ProfileCard extends React.Component {
     })
   }
 
-  randomNum(max){
-    return Math.floor(Math.random() * max)
+  randomNum(min, max){
+    if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
   }
   render(){
     return(
