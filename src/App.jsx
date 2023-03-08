@@ -33,7 +33,7 @@ class ProfileCard extends React.Component {
       class: db.classRPG[this.randomNum(0,db.classRPG.length)],
       history: '',
       archetype: db.archetype[this.randomNum(0,db.archetype.length)],
-      quirks: db.quirks[this.randomNum(0,db.quirks.length)],
+      quirks: [db.quirks[this.randomNum(0,db.quirks.length)], db.quirks[this.randomNum(0,db.quirks.length)], db.quirks[this.randomNum(0,db.quirks.length)]].join(', '),
       image: 'https://phoenixdex.alteredorigin.net/images/characters/character-placeholder.png'
     }
   }
