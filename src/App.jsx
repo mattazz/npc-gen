@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import './App.css'
-import * as names from './names.js'
+import * as db from './db.js'
 import {Configuration, OpenAIApi} from 'openai'
 
 const config = new Configuration({
@@ -28,12 +28,12 @@ class ProfileCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: names.fName[this.randomNum(names.fName.length)] + ' ' + names.lName[this.randomNum(names.lName.length)],
+      name: db.fName[this.randomNum(db.fName.length)] + ' ' + db.lName[this.randomNum(db.lName.length)],
       age: this.randomNum(100),
-      class: names.classRPG[this.randomNum(names.classRPG.length)],
+      class: db.classRPG[this.randomNum(db.classRPG.length)],
       history: '',
-      archetype: names.archetype[this.randomNum(names.archetype.length)],
-      quirks: names.quirks[this.randomNum(names.quirks.length)],
+      archetype: db.archetype[this.randomNum(db.archetype.length)],
+      quirks: db.quirks[this.randomNum(db.quirks.length)],
       image: 'https://phoenixdex.alteredorigin.net/images/characters/character-placeholder.png'
     }
   }
@@ -57,7 +57,7 @@ class ProfileCard extends React.Component {
   generateImage(){
     this.setState({image: 'Generating image...'})
     const response = openai.createImage({
-      prompt: `Generate a realistic fantasy image of a ${this.state.quirks} ${this.state.class} named ${this.state.name} who is ${this.state.age} years old. This character is dresed as a fantasy ${this.state.archetype} ${this.state.class}.`,
+      prompt: `Generate a realistic fantasy portrait of a ${this.state.quirks} ${this.state.class} named ${this.state.name} who is ${this.state.age} years old. This character is dresed as a fantasy ${this.state.archetype} ${this.state.class}.`,
       n: 1,
       size: '256x256'
     }).then((response) => {
