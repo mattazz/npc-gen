@@ -2,3 +2,19 @@
     max-width: 256px;
     max-height: 256px;
 }
+
+#customHistory{
+    border-radius: 5%;
+    padding: 10px;
+}
+.customField{
+    border-radius: 5%;
+    padding: 10px;
+    margin: 10px;
+}
+
+button{
+    border-radius: 5%;
+    padding: 10px;
+    margin: 10px;
+}
