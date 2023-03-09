@@ -11,5 +11,8 @@ Uses Open AI chat-gpt to generate a random NPC for you.
   - [ ] Custom Class
 - [ ] Users to input their own API key
 - [ ] Customizable output (json, txt, etc)
+  - [x] PDF
+  - [ ] Word
+  - [ ] Excel
 - [ ] Custom variables for AI response (ie. Max_Tokens, Temperature, etc)
 - [ ] Eliminate duplicate quirks
