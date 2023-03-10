@@ -1,0 +1,8 @@
+#test{
+    display:none;
+}
+
+.cardContainer{
+    border: 1px solid white;
+    display: none;
+}

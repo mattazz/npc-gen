@@ -1,7 +1,7 @@
 import React from 'react'
 import reactLogo from './assets/react.svg'
-import './App.css'
 import * as db from './db.js'
+import './App.css'
 import {Configuration, OpenAIApi} from 'openai'
 // React Bootstrap Imports
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -13,6 +13,7 @@ import jsPDF from 'jspdf'
 
 // Components
 import CustomParams from './assets/Components/customParams.jsx'
+import Card from './assets/Components/Card.jsx'
 
 const config = new Configuration({
   organization: 'org-YqkSoqf18JKiZxGkdJpc0NSW',
@@ -179,6 +180,8 @@ class ProfileCard extends React.Component {
         </Button>
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.generateImage()}>Generate Image </Button>
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
+
+        <Card />
       </Container>
     )
   }
