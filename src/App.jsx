@@ -181,7 +181,7 @@ class ProfileCard extends React.Component {
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.generateImage()}>Generate Image </Button>
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
 
-        <Card />
+        {/* <Card /> */}
       </Container>
     )
   }
