@@ -29,3 +29,5 @@ Uses Open AI chat-gpt to generate a random NPC for you.
 
 - [ ] Clean up UX
   - [ ] Loading icons when generating 
+  
+- [ ] Update README gif to latest build
