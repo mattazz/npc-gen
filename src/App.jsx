@@ -11,6 +11,9 @@ import Accordion from 'react-bootstrap/Accordion'
 // PDF export
 import jsPDF from 'jspdf'
 
+// Components
+import CustomParams from './assets/Components/customParams.jsx'
+
 const config = new Configuration({
   organization: 'org-YqkSoqf18JKiZxGkdJpc0NSW',
   apiKey: import.meta.env.VITE_OPENAI_API_KEY
@@ -62,8 +65,27 @@ class ProfileCard extends React.Component {
 
   setCustomName(name){
     var customName = document.getElementById('customName').value
-    console.log(customName)
     this.setState({name: customName})
+  }
+
+  setCustomArchetype(arcetype){
+    var customArchetype = document.getElementById('customArchetype').value
+    this.setState({archetype: customArchetype})
+  }
+
+  setCustomAge(age){
+    var customAge = document.getElementById('customAge').value
+    this.setState({age: customAge})
+  }
+
+  setCustomRace(race){
+    var customRace = document.getElementById('customRace').value
+    this.setState({race: customRace})
+  }
+
+  setCustomClass(classRPG){
+    var customClass = document.getElementById('customClass').value
+    this.setState({class: customClass})
   }
 
   generateHistory(max_tokens){
@@ -132,15 +154,20 @@ class ProfileCard extends React.Component {
     return(
       <Container fluid className=' bg-black text-white rounded-2 p-5'>
         <img className=' charImage rounded-3 p-4' src={this.state.image} alt='' />
+
+        {/* Add toggle button to hide or show custom fields */}
+      
+
         <h1>Name: {this.state.name}</h1>
-        <form action="">
-          <input type="text" name="" id="customName" defaultValue={'Custom Name'} />
-          <Button name='customName' className='btn ms-2' variant="light" onClick={() => this.setCustomName()}>Change Name</Button>
-          </form>
+        <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
         <h3>Age: {this.state.age}</h3>
+        <CustomParams id='customAge' defaultVal='Custom Age' buttonName='customAge' click={()=>this.setCustomAge()} />
         <h3>Race: {this.state.race}</h3>
+        <CustomParams id='customRace' defaultVal='Custom Race' buttonName='customRace' click={()=>this.setCustomRace()} />
         <h3>Class: {this.state.class}</h3>
+        <CustomParams id='customClass' defaultVal='Custom Class' buttonName='customClass' click={()=>this.setCustomClass()} />
         <h3>Archetype: {this.state.archetype}</h3>
+        <CustomParams id='customArchetype' defaultVal='Custom Archetype' buttonName='customArchetype' click={()=>this.setCustomArchetype()} />
         <h3>Quirks: {this.state.quirks}</h3>
         <h3>History:</h3>
         <hr />
