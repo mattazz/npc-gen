@@ -152,12 +152,11 @@ class ProfileCard extends React.Component {
   }
   render(){
     return(
-      <Container fluid className=' bg-black text-white rounded-2 p-5'>
+      <Container fluid className=' bg-dark text-white rounded-2 p-5'>
         <img className=' charImage rounded-3 p-4' src={this.state.image} alt='' />
 
         {/* Add toggle button to hide or show custom fields */}
       
-
         <h1>Name: {this.state.name}</h1>
         <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
         <h3>Age: {this.state.age}</h3>
