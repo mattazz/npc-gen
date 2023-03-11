@@ -12,7 +12,7 @@ Uses Open AI chat-gpt to generate a random NPC for you.
   - [ ] Add button to hide / show custo fields
   
 - [ ] Users to input their own API key
-  - [ ] Encrypt this
+  - [ ] Encrypt this and don't store it anywhere
   
 - [ ] Customizable output (json, txt, etc)
   - [x] PDF
@@ -25,6 +25,7 @@ Uses Open AI chat-gpt to generate a random NPC for you.
 - [ ] Clean up UI
   - [ ] Circle image border
   - [ ] Add more styling
+  - [ ] Mobile friendly
 
 
 - [ ] Clean up UX
