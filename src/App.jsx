@@ -91,8 +91,7 @@ class ProfileCard extends React.Component {
 
   generateHistory(max_tokens){
     var addHistory = document.getElementById('customHistory').value
-    console.log(addHistory)
-    console.log('Generating history for: ' + this.state.name + ' who is a ' + this.state.race +  this.state.quirks + ' '+ this.state.archetype + ' ' + this.state.class + ' and ' + this.state.age + ' years old.')
+    console.log('Generating history for: ' + this.state.name + ' who is a ' + this.state.race + ' ' +   this.state.quirks + ' '+ this.state.archetype + ' ' + this.state.class + ' and ' + this.state.age + ' years old.')
     this.setState({history: 'Generating history...'})
     openai.createCompletion({
       model: 'text-davinci-003',
@@ -181,7 +180,8 @@ class ProfileCard extends React.Component {
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.generateImage()}>Generate Image </Button>
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
 
-        {/* <Card /> */}
+        {/* <Card name={this.state.name} age={this.state.age} race={this.state.race} class={this.state.class} archetype={this.state.archetype}/> */}
+
       </Container>
     )
   }
