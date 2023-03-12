@@ -1,7 +1,10 @@
 import React from 'react'
 import reactLogo from './assets/react.svg'
+// Database for names, classes, etc.
 import * as db from './db.js'
+// CSS
 import './App.css'
+// AI Config
 import {Configuration, OpenAIApi} from 'openai'
 // React Bootstrap Imports
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -10,11 +13,11 @@ import Container from 'react-bootstrap/Container'
 import Accordion from 'react-bootstrap/Accordion'
 // PDF export
 import jsPDF from 'jspdf'
-
 // Components
 import CustomParams from './assets/Components/customParams.jsx'
 import Card from './assets/Components/Card.jsx'
 
+// 
 const config = new Configuration({
   organization: 'org-YqkSoqf18JKiZxGkdJpc0NSW',
   apiKey: import.meta.env.VITE_OPENAI_API_KEY
@@ -64,26 +67,23 @@ class ProfileCard extends React.Component {
     }
   }
 
+  // Set Custom Parameters
   setCustomName(name){
     var customName = document.getElementById('customName').value
     this.setState({name: customName})
   }
-
   setCustomArchetype(arcetype){
     var customArchetype = document.getElementById('customArchetype').value
     this.setState({archetype: customArchetype})
   }
-
   setCustomAge(age){
     var customAge = document.getElementById('customAge').value
     this.setState({age: customAge})
   }
-
   setCustomRace(race){
     var customRace = document.getElementById('customRace').value
     this.setState({race: customRace})
   }
-
   setCustomClass(classRPG){
     var customClass = document.getElementById('customClass').value
     this.setState({class: customClass})
@@ -143,6 +143,7 @@ class ProfileCard extends React.Component {
     
   }
 
+  // Utility
   randomNum(min, max){
     if (max == null) {
       max = min;
@@ -150,6 +151,7 @@ class ProfileCard extends React.Component {
     }
     return min + Math.floor(Math.random() * (max - min + 1));
   }
+
   render(){
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
