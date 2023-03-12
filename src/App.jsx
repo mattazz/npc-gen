@@ -38,7 +38,7 @@ function App() {
 // Adds customizable options to the profile card --> ProfileCard
 function CustomField(){
   return(
-    <Accordion className='customField rounded-3'>
+    <Accordion className='customHistory rounded-3'>
       <Accordion.Header>
         Custom Options
       </Accordion.Header>
@@ -88,6 +88,20 @@ class ProfileCard extends React.Component {
     var customClass = document.getElementById('customClass').value
     this.setState({class: customClass})
   }
+
+  toggleCustomFields(){
+    // get all customField ids
+    var customFields = document.getElementsByClassName('customField')
+    // toggle display
+    for (var i = 0; i < customFields.length; i++){
+      if (customFields[i].style.display === 'none' || customFields[i].style.display === ''){
+        customFields[i].style.display = 'inline-block'
+      } else {
+        customFields[i].style.display = 'none'
+      }
+    }
+  }
+
 
   generateHistory(max_tokens){
     var addHistory = document.getElementById('customHistory').value
@@ -155,8 +169,9 @@ class ProfileCard extends React.Component {
   render(){
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
-        <img className=' charImage rounded-3 p-4' src={this.state.image} alt='' />
+        <img className='charImage rounded-3 p-4' src={this.state.image} alt='' />
         {/* Add toggle button to hide or show custom fields */}
+        <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
         <h1>Name: {this.state.name}</h1>
         <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
         <h3>Age: {this.state.age}</h3>

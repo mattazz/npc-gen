@@ -3,11 +3,19 @@
     max-height: 256px;
 }
 
+
+
 #customHistory{
     border-radius: 5%;
     padding: 10px;
 }
 .customField{
+    display:none;
+    border-radius: 5%;
+    padding: 0px;
+    margin: 0px;
+}
+.customHistory{
     border-radius: 5%;
     padding: 10px;
     margin: 10px;
