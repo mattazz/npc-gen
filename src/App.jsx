@@ -156,9 +156,7 @@ class ProfileCard extends React.Component {
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
         <img className=' charImage rounded-3 p-4' src={this.state.image} alt='' />
-
         {/* Add toggle button to hide or show custom fields */}
-      
         <h1>Name: {this.state.name}</h1>
         <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
         <h3>Age: {this.state.age}</h3>
@@ -181,9 +179,7 @@ class ProfileCard extends React.Component {
         </Button>
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.generateImage()}>Generate Image </Button>
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
-
         {/* <Card name={this.state.name} age={this.state.age} race={this.state.race} class={this.state.class} archetype={this.state.archetype}/> */}
-
       </Container>
     )
   }
