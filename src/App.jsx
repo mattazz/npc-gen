@@ -16,6 +16,7 @@ import jsPDF from 'jspdf'
 // Components
 import CustomParams from './assets/Components/customParams.jsx'
 import Card from './assets/Components/Card.jsx'
+import Header from './assets/Components/Header.jsx'
 
 // 
 const config = new Configuration({
@@ -169,7 +170,8 @@ class ProfileCard extends React.Component {
   render(){
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
-        <img className='charImage rounded-3 p-4' src={this.state.image} alt='' />
+        <Header/>
+        {/* <img className='charImage rounded-3 p-4' src={this.state.image} alt='' /> */}
         {/* Add toggle button to hide or show custom fields */}
         <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
         <h1>Name: {this.state.name}</h1>
@@ -192,7 +194,7 @@ class ProfileCard extends React.Component {
         <Button className='btn' variant="light" onClick={() => this.generateHistory(400)}>
           Generate History
         </Button>
-        <Button className='btn d-block mt-2' variant="light" onClick={() => this.generateImage()}>Generate Image </Button>
+        {/* <Button className='btn d-block mt-2' variant="light" onClick={() => this.generateImage()}>Generate Image </Button> */}
         <Button className='btn d-block mt-2' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
         {/* <Card name={this.state.name} age={this.state.age} race={this.state.race} class={this.state.class} archetype={this.state.archetype}/> */}
       </Container>

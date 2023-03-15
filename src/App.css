@@ -1,8 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Iso'); 
+
 .charImage{
     max-width: 256px;
     max-height: 256px;
 }
 
+.App-header{
+    background-color: #191c1f;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+.App-header > h1{
+    font-family: 'Rubik Iso';
+
+}
 
 
 #customHistory{
@@ -27,7 +40,7 @@ button{
     margin: 10px;
 }
 
-body{
-    /* Gradient background color */
-    background-color: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%) !important;
+html{
+    background-color: #212529;
 }
+
