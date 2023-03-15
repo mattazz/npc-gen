@@ -39,7 +39,7 @@ function App() {
 // Adds customizable options to the profile card --> ProfileCard
 function CustomField(){
   return(
-    <Accordion className='customHistory rounded-3'>
+    <Accordion className='customHistory rounded-3 ms-0 p-0 mt-3'>
       <Accordion.Header>
         Custom Options
       </Accordion.Header>
@@ -106,11 +106,11 @@ class ProfileCard extends React.Component {
 
   generateHistory(max_tokens){
     var addHistory = document.getElementById('customHistory').value
-    console.log('Generating history for: ' + this.state.name + ' who is a ' + this.state.race + ' ' +   this.state.quirks + ' '+ this.state.archetype + ' ' + this.state.class + ' and ' + this.state.age + ' years old.')
+    // console.log('Generating history for: ' + this.state.name + ' who is a ' + this.state.race + ' ' +   this.state.quirks + ' '+ this.state.archetype + ' ' + this.state.class + ' and ' + this.state.age + ' years old.')
     this.setState({history: 'Generating history...'})
     openai.createCompletion({
       model: 'text-davinci-003',
-      prompt: `Generate a background history for a fantasy character named ${this.state.name} who is a ${this.state.quirks} ${this.state.race} ${this.state.class} and ${this.state.age} years old.
+      prompt: `Generate a background history in the style of Dungeons and Dragons for a fantasy character named ${this.state.name} who is a ${this.state.quirks} ${this.state.race} ${this.state.class} and ${this.state.age} years old.
       This character is a ${this.state.archetype}. Also, ${addHistory}.Generate this in html format with <p> tags and <h2> as titles for each notable moment in his history.`,
       max_tokens: max_tokens,
       temperature: 0.2,
@@ -171,32 +171,32 @@ class ProfileCard extends React.Component {
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
         <Header/>
-        {/* <img className='charImage rounded-3 p-4' src={this.state.image} alt='' /> */}
         {/* Add toggle button to hide or show custom fields */}
         <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
-        <h1>Name: {this.state.name}</h1>
-        <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
-        <h3>Age: {this.state.age}</h3>
-        <CustomParams id='customAge' defaultVal='Custom Age' buttonName='customAge' click={()=>this.setCustomAge()} />
-        <h3>Race: {this.state.race}</h3>
-        <CustomParams id='customRace' defaultVal='Custom Race' buttonName='customRace' click={()=>this.setCustomRace()} />
-        <h3>Class: {this.state.class}</h3>
-        <CustomParams id='customClass' defaultVal='Custom Class' buttonName='customClass' click={()=>this.setCustomClass()} />
-        <h3>Archetype: {this.state.archetype}</h3>
-        <CustomParams id='customArchetype' defaultVal='Custom Archetype' buttonName='customArchetype' click={()=>this.setCustomArchetype()} />
-        <h3>Quirks: {this.state.quirks}</h3>
-        <h3>History:</h3>
         <hr />
-        <div dangerouslySetInnerHTML={{__html: this.state.history}} />
+        <div className="mainCard">
+          <h3>Name: {this.state.name}</h3>
+          <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
+          <h3>Age: {this.state.age}</h3>
+          <CustomParams id='customAge' defaultVal='Custom Age' buttonName='customAge' click={()=>this.setCustomAge()} />
+          <h3>Race: {this.state.race}</h3>
+          <CustomParams id='customRace' defaultVal='Custom Race' buttonName='customRace' click={()=>this.setCustomRace()} />
+          <h3>Class: {this.state.class}</h3>
+          <CustomParams id='customClass' defaultVal='Custom Class' buttonName='customClass' click={()=>this.setCustomClass()} />
+          <h3>Archetype: {this.state.archetype}</h3>
+          <CustomParams id='customArchetype' defaultVal='Custom Archetype' buttonName='customArchetype' click={()=>this.setCustomArchetype()} />
+          <h3>Quirks: {this.state.quirks}</h3>
+          <h3>History:</h3>
+          <hr />
+          <div dangerouslySetInnerHTML={{__html: this.state.history}} />
+        </div>
         {/* Component */}
         <CustomField />
         {/*  */}
-        <Button className='btn' variant="light" onClick={() => this.generateHistory(400)}>
+        <Button className='btn customButtons' variant="light" onClick={() => this.generateHistory(400)}>
           Generate History
         </Button>
-        {/* <Button className='btn d-block mt-2' variant="light" onClick={() => this.generateImage()}>Generate Image </Button> */}
-        <Button className='btn d-block mt-2' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
-        {/* <Card name={this.state.name} age={this.state.age} race={this.state.race} class={this.state.class} archetype={this.state.archetype}/> */}
+        <Button className='btn d-inline ms-3 customButtons' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
       </Container>
     )
   }

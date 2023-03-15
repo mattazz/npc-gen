@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Iso'); 
 
+
+.mainCard{
+    text-align: left;
+    margin-top: 30px;
+    background-color: #191c1f;
+    padding: 50px;
+    border-radius: 10px;
+}
+h3{
+    font-family:monospace;
+}
+.accordion-button{
+    border-radius: 10px !important;
+}
 .charImage{
     max-width: 256px;
     max-height: 256px;
@@ -14,9 +28,7 @@
 }
 .App-header > h1{
     font-family: 'Rubik Iso';
-
 }
-
 
 #customHistory{
     border-radius: 5%;
