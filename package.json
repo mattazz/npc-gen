@@ -1,7 +1,7 @@
 {
   "homepage": "http://mattazz.github.io/npc-gen",
-  "name": "vite-project",
-  "private": true,
+  "name": "npc-gen",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -10,7 +10,6 @@
     "deploy": "gh-pages -d dist",
     "build": "vite build",
     "preview": "vite preview"
-
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
@@ -19,7 +18,8 @@
     "openai": "^3.2.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
