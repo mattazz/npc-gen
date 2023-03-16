@@ -1,6 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Iso'); 
 
+.red-text{
+    color: red !important;
+}
 
+.white-text{
+    color: white !important;
+}
+
+.yellow-text{
+    color: yellow !important;
+}
+
+.visible{
+    display: block;
+}
+.hidden{
+    display: none;
+}
+
+.green-text{
+    color: green !important;
+}
 .mainCard{
     text-align: left;
     margin-top: 30px;

@@ -38,15 +38,33 @@ function App() {
 
 function ApiForm(){
   const [key, setKey] = useState('')
-  const [message, setMessage] = useState('API Key Not Configured')
+  const [message, setMessage] = useState('Input your Open AI API Key first to continue')
+  const [color, setColor] = useState('yellow-text')
+
 
   function configureAI(){
+    setColor('white-text')
+    setMessage('Configuring AI...')
     const config = new Configuration({
       apiKey: key
     })
+
     openai = new OpenAIApi(config);
-    console.log(openai)
-    setMessage('API Key Configured')
+    const response = openai.listModels().then((response) => {
+    })
+    // Log if the promise is resolved or rejected
+    response.then((response) => {
+      console.log('Promise resolved')
+      setMessage('API Key Configured, good to go!')
+      // remove class hidden
+      document.getElementById('mainContainer').classList.remove('hidden')
+      setColor('green-text')
+    }).catch((error) => {
+      console.log('Promise rejected')
+      setColor('red-text')
+      setMessage('Error with API key provided')
+    })
+    
   }
   
 
@@ -54,9 +72,9 @@ function ApiForm(){
     <div className=' mb-2 '>
       <p className=' d-inline
       '>Open AI API Key (Not Saved): </p>
-      <input className='d-block w-75' type="text" name="api-key" id="" value={key} onChange={(e) => setKey(e.target.value)}/>
+      <input type='password' className='d-block w-75' name="api-key" id="" placeholder='Input OpenAI API key here' value={key} onChange={(e) => setKey(e.target.value)}/>
       <Button className='mt-2 mb-2 btn btn-light d-block' variant='primary' onClick={configureAI}>Configure AI</Button>
-      <p>{message}</p>
+      <p className={color}>{message}</p>
       </div>
     )
 }
@@ -135,7 +153,7 @@ class ProfileCard extends React.Component {
     openai.createCompletion({
       model: 'text-davinci-003',
       prompt: `Generate a background history in the style of Dungeons and Dragons for a fantasy character named ${this.state.name} who is a ${this.state.quirks} ${this.state.race} ${this.state.class} and ${this.state.age} years old.
-      This character is a ${this.state.archetype}. Also, ${addHistory}.Generate this in html format with <p> tags and <h2> as titles for each notable moment in his history.`,
+      This character is also a ${this.state.archetype}. Also, ${addHistory}. Generate this in html format with <p> tags and <h2> as titles for each notable moment in his history.`,
       max_tokens: max_tokens,
       temperature: 0.2,
     }).then((response) => {
@@ -145,6 +163,7 @@ class ProfileCard extends React.Component {
     })
   }
 
+  // Disabled and probably won't do anymore
   generateImage(){
 
     this.setState({image: 'Generating image...'})
@@ -196,31 +215,33 @@ class ProfileCard extends React.Component {
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
         <Header/>
         <ApiForm />
-        <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
-        <hr />
-        <div className="mainCard">
-          <h3>Name: {this.state.name}</h3>
-          <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
-          <h3>Age: {this.state.age}</h3>
-          <CustomParams id='customAge' defaultVal='Custom Age' buttonName='customAge' click={()=>this.setCustomAge()} />
-          <h3>Race: {this.state.race}</h3>
-          <CustomParams id='customRace' defaultVal='Custom Race' buttonName='customRace' click={()=>this.setCustomRace()} />
-          <h3>Class: {this.state.class}</h3>
-          <CustomParams id='customClass' defaultVal='Custom Class' buttonName='customClass' click={()=>this.setCustomClass()} />
-          <h3>Archetype: {this.state.archetype}</h3>
-          <CustomParams id='customArchetype' defaultVal='Custom Archetype' buttonName='customArchetype' click={()=>this.setCustomArchetype()} />
-          <h3>Quirks: {this.state.quirks}</h3>
-          <h3>History:</h3>
+        <div id='mainContainer' className='hidden'>
+          <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
           <hr />
-          <div dangerouslySetInnerHTML={{__html: this.state.history}} />
-        </div>
-        {/* Component */}
-        <CustomField />
-        {/*  */}
-        <Button className='btn customButtons' variant="light" onClick={() => this.generateHistory(400)}>
-          Generate History
-        </Button>
-        <Button className='btn d-inline ms-3 customButtons' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
+          <div className="mainCard">
+            <h3>Name: {this.state.name}</h3>
+            <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
+            <h3>Age: {this.state.age}</h3>
+            <CustomParams id='customAge' defaultVal='Custom Age' buttonName='customAge' click={()=>this.setCustomAge()} />
+            <h3>Race: {this.state.race}</h3>
+            <CustomParams id='customRace' defaultVal='Custom Race' buttonName='customRace' click={()=>this.setCustomRace()} />
+            <h3>Class: {this.state.class}</h3>
+            <CustomParams id='customClass' defaultVal='Custom Class' buttonName='customClass' click={()=>this.setCustomClass()} />
+            <h3>Archetype: {this.state.archetype}</h3>
+            <CustomParams id='customArchetype' defaultVal='Custom Archetype' buttonName='customArchetype' click={()=>this.setCustomArchetype()} />
+            <h3>Quirks: {this.state.quirks}</h3>
+            <h3>History:</h3>
+            <hr />
+            <div dangerouslySetInnerHTML={{__html: this.state.history}} />
+          </div>
+          {/* Component */}
+          <CustomField />
+          {/*  */}
+          <Button className='btn customButtons' variant="light" onClick={() => this.generateHistory(400)}>
+            Generate History
+          </Button>
+          <Button className='btn d-inline ms-3 customButtons' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
+          </div>
       </Container>
     )
   }
