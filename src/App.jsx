@@ -38,14 +38,15 @@ function App() {
 
 function ApiForm(){
   const [key, setKey] = useState('')
+  const [message, setMessage] = useState('API Key Not Configured')
 
   function configureAI(){
-    console.log(key)
     const config = new Configuration({
       apiKey: key
     })
     openai = new OpenAIApi(config);
     console.log(openai)
+    setMessage('API Key Configured')
   }
   
 
@@ -55,6 +56,7 @@ function ApiForm(){
       '>Open AI API Key (Not Saved): </p>
       <input type="text" name="api-key" id="" value={key} onChange={(e) => setKey(e.target.value)}/>
       <Button className='ms-2 btn btn-light' variant='primary' onClick={configureAI}>Configure AI</Button>
+      <p>{message}</p>
       </div>
     )
 }
