@@ -1,9 +1,13 @@
 # NPC-GEN
 Uses Open AI chat-gpt to generate a random NPC for you.
 
+## Overview
 ![Sample](public/images/sample.gif)
 
-## to-do:
+## Adding custom parameters
+![Custom](public/images/custom.gif)
+
+### to-do:
 
 - [ ] Learn how to use Environment Variables in gh pages for default AI key 
   
@@ -15,12 +19,12 @@ Uses Open AI chat-gpt to generate a random NPC for you.
   - [x] Add button to hide / show custo fields
   
 - [x] Users to input their own API key
-  - [ ] Encrypt this and don't store it anywhere
   
 - [ ] Customizable output (json, txt, etc)
   - [x] PDF
   - [ ] Word
   - [ ] Excel
+  - [ ] 
 - [ ] Custom variables for AI response (ie. Max_Tokens, Temperature, etc)
 - [ ] Eliminate duplicate quirks
 
@@ -33,5 +37,6 @@ Uses Open AI chat-gpt to generate a random NPC for you.
 
 - [ ] Clean up UX
   - [ ] Loading icons when generating 
+  - [ ] Animations
   
-- [ ] Update README gif to latest build
+- [x] Update README gif to latest build
