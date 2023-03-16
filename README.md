@@ -9,7 +9,8 @@ Uses Open AI chat-gpt to generate a random NPC for you.
 
 ### to-do:
 
-- [ ] Learn how to use Environment Variables in gh pages for default AI key 
+- [ ] Use Environment Variables in gh pages for default AI key 
+- [ ] Add absolute help slider to header '?' box
   
 - [ ] add more customizable options (age, added history (for AI to learn from))
   - [x] Custom Name

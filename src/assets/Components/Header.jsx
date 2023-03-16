@@ -10,7 +10,12 @@ export default function Header(){
     })
     return (
         <animated.header style={spring} className="App-header">
+        <div id='header-top'></div>
+        <div id='header-left'></div>
+        <div id='header-right'></div>
+        <button id='close-box'>?</button>
         <h1>NPC Generator</h1>
         <p>Generate a random character with the help of OpenAI</p>
+        <div id='header-bottom'></div>
         </animated.header>)
 }
