@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import * as db from './db.js'
 // CSS
 import './App.css'
+import {useSpring, animated} from '@react-spring/web'
 // AI Config
 import {Configuration, OpenAIApi} from 'openai'
 // React Bootstrap Imports
@@ -41,14 +42,26 @@ function ApiForm(){
   const [message, setMessage] = useState('Input your Open AI API Key first to continue')
   const [color, setColor] = useState('yellow-text')
 
+  const springs = useSpring({
+    from: {opacity: 0},
+    to: {opacity: 1}
+  })
+
+  const [fadeIn, setFadeIn] = useSpring(() =>({
+    from: {opacity: 0}
+  }))
 
   function configureAI(){
+    setFadeIn.start({
+      from: {opacity: 0},
+      to: {opacity: 1}
+    })
     setColor('white-text')
     setMessage('Configuring AI...')
     const config = new Configuration({
       apiKey: key
     })
-
+    
     openai = new OpenAIApi(config);
     const response = openai.listModels().then((response) => {
     })
@@ -69,13 +82,13 @@ function ApiForm(){
   
 
   return(
-    <div className=' mb-2 '>
+    <animated.div style={springs} className=' mb-2 '>
       <p className=' d-inline
       '>Open AI API Key (Not Saved): </p>
       <input type='password' className='d-block w-75' name="api-key" id="" placeholder='Input OpenAI API key here' value={key} onChange={(e) => setKey(e.target.value)}/>
       <Button className='mt-2 mb-2 btn btn-light d-block' variant='primary' onClick={configureAI}>Configure AI</Button>
-      <p className={color}>{message}</p>
-      </div>
+      <animated.p style={fadeIn} className={color}>{message}</animated.p>
+      </animated.div>
     )
 }
 // Adds customizable options to the profile card --> ProfileCard

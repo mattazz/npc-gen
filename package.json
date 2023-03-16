@@ -12,6 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-spring/web": "^9.7.1",
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
     "jspdf": "^2.5.1",
