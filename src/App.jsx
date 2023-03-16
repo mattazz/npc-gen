@@ -63,8 +63,7 @@ function ApiForm(){
     })
     
     openai = new OpenAIApi(config);
-    const response = openai.listModels().then((response) => {
-    })
+    const response = openai.listModels()
     // Log if the promise is resolved or rejected
     response.then((response) => {
       console.log('Promise resolved')
@@ -75,7 +74,8 @@ function ApiForm(){
     }).catch((error) => {
       console.log('Promise rejected')
       setColor('red-text')
-      setMessage('Error with API key provided')
+      setMessage('Error with API key provided: ' + error)
+
     })
     
   }
@@ -115,13 +115,13 @@ class ProfileCard extends React.Component {
       age: this.randomNum(18, 100),
       class: db.classRPG[this.randomNum(0,db.classRPG.length-1)],
       race: db.race[this.randomNum(0, db.race.length-1)],
-      history: '',
+      history: 'Click generate history to generate a random history for this character',
       additionalHistory: '',
       archetype: db.archetype[this.randomNum(0,db.archetype.length-1)],
       quirks: [db.quirks[this.randomNum(0,db.quirks.length-1)], db.quirks[this.randomNum(0,db.quirks.length-1)], db.quirks[this.randomNum(0,db.quirks.length-1)]].join(', '),
       image: 'https://phoenixdex.alteredorigin.net/images/characters/character-placeholder.png'
     }
-  }
+  }  
 
   regenerateAll(){
     this.setState({name: db.fName[this.randomNum(0,db.fName.length -1)] + ' ' + db.lName[this.randomNum(0,db.lName.length-1)]})
@@ -239,7 +239,6 @@ class ProfileCard extends React.Component {
         <ApiForm />
         <div id='mainContainer' className='hidden'>
           <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
-          <hr />
           <div className="mainCard">
             <h3>Name: {this.state.name}</h3>
             <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
@@ -260,7 +259,7 @@ class ProfileCard extends React.Component {
           <CustomField />
           {/*  */}
           <Button className='btn customButtons me-2' variant="light" onClick={() => this.regenerateAll()}> Generate again </Button>
-          <Button className='btn customButtons d-block mt-2' variant="light" onClick={() => this.generateHistory(400)}>
+          <Button className='btn customButtons d-block mt-2' variant="light" onClick={() => this.generateHistory(400)} >
             Generate History
           </Button>
           <Button className='btn d-inline d-block mt-2 customButtons' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>

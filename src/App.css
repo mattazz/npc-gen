@@ -28,6 +28,8 @@
     background-color: #191c1f;
     padding: 50px;
     border-radius: 10px;
+    /* Create box shadow */
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 h3{
     font-family:monospace;
@@ -46,6 +48,9 @@ h3{
     text-align: center;
     border-radius: 20px;
     margin-bottom: 40px;
+    /* Create box shadow */
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    
 }
 .App-header > h1{
     font-family: 'Rubik Iso';
@@ -71,6 +76,9 @@ button{
     border-radius: 5%;
     padding: 10px;
     margin: 10px;
+    /* create box shadow */
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    
 }
 
 html{
