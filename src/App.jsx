@@ -149,7 +149,7 @@ class ProfileCard extends React.Component {
   generateHistory(max_tokens){
     var addHistory = document.getElementById('customHistory').value
     // console.log('Generating history for: ' + this.state.name + ' who is a ' + this.state.race + ' ' +   this.state.quirks + ' '+ this.state.archetype + ' ' + this.state.class + ' and ' + this.state.age + ' years old.')
-    this.setState({history: 'Generating history...'})
+    this.setState({history: 'Generating history, this might take a while don\'t close the page...'})
     openai.createCompletion({
       model: 'text-davinci-003',
       prompt: `Generate a background history in the style of Dungeons and Dragons for a fantasy character named ${this.state.name} who is a ${this.state.quirks} ${this.state.race} ${this.state.class} and ${this.state.age} years old.
