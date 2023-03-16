@@ -34,6 +34,13 @@ function App() {
       <ProfileCard />
     </div>
   )
+
+
+function ApiForm(){
+  return(
+      <input type="text" name="APIKEY" id="" />
+    )
+  }
 }
 
 // Adds customizable options to the profile card --> ProfileCard
@@ -171,7 +178,6 @@ class ProfileCard extends React.Component {
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
         <Header/>
-        {/* Add toggle button to hide or show custom fields */}
         <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
         <hr />
         <div className="mainCard">
