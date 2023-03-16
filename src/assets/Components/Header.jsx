@@ -15,7 +15,9 @@ export default function Header(){
         <div id='header-right'></div>
         <button id='close-box'>?</button>
         <h1>NPC Generator</h1>
-        <p>Generate a random character with the help of OpenAI</p>
+        <div id="header-body">
+            <p>Generate a random character with the help of OpenAI</p>
+        </div>
         <div id='header-bottom'></div>
         </animated.header>)
 }
