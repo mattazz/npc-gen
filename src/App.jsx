@@ -54,8 +54,8 @@ function ApiForm(){
     <div className=' mb-2 '>
       <p className=' d-inline
       '>Open AI API Key (Not Saved): </p>
-      <input type="text" name="api-key" id="" value={key} onChange={(e) => setKey(e.target.value)}/>
-      <Button className='ms-2 btn btn-light' variant='primary' onClick={configureAI}>Configure AI</Button>
+      <input className='d-block w-75' type="text" name="api-key" id="" value={key} onChange={(e) => setKey(e.target.value)}/>
+      <Button className='mt-2 mb-2 btn btn-light d-block' variant='primary' onClick={configureAI}>Configure AI</Button>
       <p>{message}</p>
       </div>
     )
