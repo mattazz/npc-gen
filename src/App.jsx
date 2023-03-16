@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import reactLogo from './assets/react.svg'
 // Database for names, classes, etc.
 import * as db from './db.js'
@@ -19,12 +19,12 @@ import Card from './assets/Components/Card.jsx'
 import Header from './assets/Components/Header.jsx'
 
 // 
-const config = new Configuration({
-  organization: 'org-YqkSoqf18JKiZxGkdJpc0NSW',
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY
-})
+// const config = new Configuration({
+//   organization: 'org-YqkSoqf18JKiZxGkdJpc0NSW',
+//   apiKey: import.meta.env.VITE_OPENAI_API_KEY
+// })
 
-const openai = new OpenAIApi(config);
+var openai = null;
 
 
 // Main Render to DOM
@@ -34,15 +34,30 @@ function App() {
       <ProfileCard />
     </div>
   )
-
-
-function ApiForm(){
-  return(
-      <input type="text" name="APIKEY" id="" />
-    )
-  }
 }
 
+function ApiForm(){
+  const [key, setKey] = useState('')
+
+  function configureAI(){
+    console.log(key)
+    const config = new Configuration({
+      apiKey: key
+    })
+    openai = new OpenAIApi(config);
+    console.log(openai)
+  }
+  
+
+  return(
+    <div className=' mb-2 '>
+      <p className=' d-inline
+      '>Open AI API Key (Not Saved): </p>
+      <input type="text" name="api-key" id="" value={key} onChange={(e) => setKey(e.target.value)}/>
+      <Button className='ms-2 btn btn-light' variant='primary' onClick={configureAI}>Configure AI</Button>
+      </div>
+    )
+}
 // Adds customizable options to the profile card --> ProfileCard
 function CustomField(){
   return(
@@ -178,6 +193,7 @@ class ProfileCard extends React.Component {
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
         <Header/>
+        <ApiForm />
         <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
         <hr />
         <div className="mainCard">
