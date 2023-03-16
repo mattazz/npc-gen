@@ -110,6 +110,15 @@ class ProfileCard extends React.Component {
     }
   }
 
+  regenerateAll(){
+    this.setState({name: db.fName[this.randomNum(0,db.fName.length -1)] + ' ' + db.lName[this.randomNum(0,db.lName.length-1)]})
+    this.setState({age: this.randomNum(18, 100)})
+    this.setState({class: db.classRPG[this.randomNum(0,db.classRPG.length-1)]})
+    this.setState({race: db.race[this.randomNum(0, db.race.length-1)] })
+    this.setState({archetype: db.archetype[this.randomNum(0,db.archetype.length-1)]})
+    this.setState({quirks: [db.quirks[this.randomNum(0,db.quirks.length-1)], db.quirks[this.randomNum(0,db.quirks.length-1)], db.quirks[this.randomNum(0,db.quirks.length-1)]].join(', ')})
+  }
+
   // Set Custom Parameters
   setCustomName(name){
     var customName = document.getElementById('customName').value
@@ -237,10 +246,11 @@ class ProfileCard extends React.Component {
           {/* Component */}
           <CustomField />
           {/*  */}
-          <Button className='btn customButtons' variant="light" onClick={() => this.generateHistory(400)}>
+          <Button className='btn customButtons me-2' variant="light" onClick={() => this.regenerateAll()}> Generate again </Button>
+          <Button className='btn customButtons d-block mt-2' variant="light" onClick={() => this.generateHistory(400)}>
             Generate History
           </Button>
-          <Button className='btn d-inline ms-3 customButtons' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
+          <Button className='btn d-inline d-block mt-2 customButtons' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
           </div>
       </Container>
     )
