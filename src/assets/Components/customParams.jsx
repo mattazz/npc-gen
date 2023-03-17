@@ -1,8 +1,10 @@
+import { useSpring, animated } from '@react-spring/web';
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 
 
 export default function customParams(props){
+
     return (
         <form action="" className='customField'>
           <input type="text" name="" id={props.id} defaultValue={props.defaultVal} />

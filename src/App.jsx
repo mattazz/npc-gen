@@ -160,7 +160,6 @@ class ProfileCard extends React.Component {
 
   toggleCustomFields(){
     // get all customField ids
-
     var customFields = document.getElementsByClassName('customField')
     // toggle display
     for (var i = 0; i < customFields.length; i++){
