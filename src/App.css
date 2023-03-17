@@ -16,7 +16,7 @@
     display: block;
 }
 .hidden{
-    display: none;
+    display: block;
 }
 
 .green-text{

@@ -19,6 +19,7 @@ import CustomParams from './assets/Components/customParams.jsx'
 import Card from './assets/Components/Card.jsx'
 import Header from './assets/Components/Header.jsx'
 
+
 // 
 // const config = new Configuration({
 //   organization: 'org-YqkSoqf18JKiZxGkdJpc0NSW',
@@ -122,7 +123,10 @@ class ProfileCard extends React.Component {
       image: 'https://phoenixdex.alteredorigin.net/images/characters/character-placeholder.png'
     }
   }  
+  
 
+
+  
   regenerateAll(){
     this.setState({name: db.fName[this.randomNum(0,db.fName.length -1)] + ' ' + db.lName[this.randomNum(0,db.lName.length-1)]})
     this.setState({age: this.randomNum(18, 100)})
@@ -156,6 +160,7 @@ class ProfileCard extends React.Component {
 
   toggleCustomFields(){
     // get all customField ids
+
     var customFields = document.getElementsByClassName('customField')
     // toggle display
     for (var i = 0; i < customFields.length; i++){
@@ -166,7 +171,6 @@ class ProfileCard extends React.Component {
       }
     }
   }
-
 
   generateHistory(max_tokens){
     var addHistory = document.getElementById('customHistory').value
@@ -187,7 +191,6 @@ class ProfileCard extends React.Component {
 
   // Disabled and probably won't do anymore
   generateImage(){
-
     this.setState({image: 'Generating image...'})
     const response = openai.createImage({
       prompt: `Generate a realistic fantasy portrait of a ${this.state.quirks} ${this.state.race} ${this.state.class} named ${this.state.name} who is ${this.state.age} years old. This character is dresed as a fantasy ${this.state.archetype} ${this.state.class}.`,
