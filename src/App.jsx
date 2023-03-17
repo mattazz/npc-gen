@@ -124,9 +124,6 @@ class ProfileCard extends React.Component {
     }
   }  
   
-
-
-  
   regenerateAll(){
     this.setState({name: db.fName[this.randomNum(0,db.fName.length -1)] + ' ' + db.lName[this.randomNum(0,db.lName.length-1)]})
     this.setState({age: this.randomNum(18, 100)})
