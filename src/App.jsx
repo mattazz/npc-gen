@@ -19,13 +19,6 @@ import CustomParams from './assets/Components/customParams.jsx'
 import Card from './assets/Components/Card.jsx'
 import Header from './assets/Components/Header.jsx'
 
-
-// 
-// const config = new Configuration({
-//   organization: 'org-YqkSoqf18JKiZxGkdJpc0NSW',
-//   apiKey: import.meta.env.VITE_OPENAI_API_KEY
-// })
-
 var openai = null;
 
 
