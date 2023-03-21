@@ -32,6 +32,13 @@
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
+
+.slime-load{
+    position: absolute;
+    left: 70px;
+    bottom: 70px;
+    width: 20px;
+}
 h3{
     font-family:monospace;
 }
