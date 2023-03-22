@@ -143,10 +143,11 @@ html{
 }
 
 #closeBox{
+    border-radius: 10px;
     position: fixed;
     width: 80vw;
     height: 50vh;
-    background-color: black;
+    background-color: rgb(28, 28, 28);
     top: 100px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
     text-align: center;

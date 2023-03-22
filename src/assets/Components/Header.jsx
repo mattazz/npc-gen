@@ -30,28 +30,9 @@ export default function Header(){
 
     useEffect(() => {
         if (helpOpen){
-            document.getElementById('closeBox').style.display = 'block'
-            document.getElementById('header-top').style.filter = 'blur(5px)'
-            document.getElementById('header-left').style.filter = 'blur(5px)'
-            document.getElementById('header-right').style.filter = 'blur(5px)'
-            document.getElementById('header-body').style.filter = 'blur(5px)'
-            document.getElementById('header-bottom').style.filter = 'blur(5px)'
-            // document.getElementById('close-box').style.filter = 'blur(5px)'
-            document.getElementById('heading').style.filter = 'blur(5px)'
-
-            
+            document.getElementById('closeBox').style.display = 'block'        
         } else {
             document.getElementById('closeBox').style.display = 'none'
-            document.getElementById('header-top').style.filter = 'blur(0px)'
-            document.getElementById('header-left').style.filter = 'blur(0px)'
-            document.getElementById('header-right').style.filter = 'blur(0px)'
-            document.getElementById('header-body').style.filter = 'blur(0px)'
-            document.getElementById('header-bottom').style.filter = 'blur(0px)'
-            document.getElementById('close-box').style.filter = 'blur(0px)'
-            document.getElementById('heading').style.filter = 'blur(0px)'
-
-            
-
         }
     })
     return (
