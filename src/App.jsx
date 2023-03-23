@@ -75,7 +75,7 @@ function ApiForm(){
   return(
     <animated.div style={springs} className=' mb-2 '>
       <p className=' d-inline
-      '>Open AI API Key (You data is not saved): </p>
+      '>Open AI API Key (Your data is not saved): </p>
       <input type='password' className='d-block w-75' name="api-key" id="" placeholder='Input OpenAI API key here' value={key} onChange={(e) => setKey(e.target.value)}/>
       <Button className='mt-2 mb-2 btn btn-light d-block' variant='primary' onClick={configureAI}>Configure AI</Button>
       <animated.p style={fadeIn} className={color}>{message}</animated.p>
