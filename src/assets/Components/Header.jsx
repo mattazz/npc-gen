@@ -15,7 +15,12 @@ export default function Header(){
 
     const fadeAnim = useSpring({
         opacity: helpOpen ? 1 : 0,
-        config: {duration: 250}
+        config: {duration: 250},
+        onRest: () => {
+            if (!helpOpen){
+                document.getElementById('closeBox').style.display = 'none'
+            }
+        }
     })
 
     function closeBox(){
@@ -31,9 +36,7 @@ export default function Header(){
     useEffect(() => {
         if (helpOpen){
             document.getElementById('closeBox').style.display = 'block'        
-        } else {
-            document.getElementById('closeBox').style.display = 'none'
-        }
+        } 
     })
     return (
         <animated.header style={spring} className="App-header">

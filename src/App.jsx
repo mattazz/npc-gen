@@ -18,9 +18,10 @@ import jsPDF from 'jspdf'
 import CustomParams from './assets/Components/customParams.jsx'
 import Card from './assets/Components/Card.jsx'
 import Header from './assets/Components/Header.jsx'
+import GenerateButtons from './assets/Components/GenerateButtons.jsx'
 
+// Global
 var openai = null;
-
 
 // Main Render to DOM
 function App() {
@@ -68,9 +69,7 @@ function ApiForm(){
       console.log('Promise rejected')
       setColor('red-text')
       setMessage('Error with API key provided: ' + error)
-
     })
-    
   }
   
   return(
@@ -120,7 +119,6 @@ class ProfileCard extends React.Component {
       image: 'https://phoenixdex.alteredorigin.net/images/characters/character-placeholder.png'
     }
   }  
-  
   regenerateAll(){
     this.setState({name: db.fName[this.randomNum(0,db.fName.length -1)] + ' ' + db.lName[this.randomNum(0,db.lName.length-1)]})
     this.setState({age: this.randomNum(18, 100)})
@@ -129,7 +127,6 @@ class ProfileCard extends React.Component {
     this.setState({archetype: db.archetype[this.randomNum(0,db.archetype.length-1)]})
     this.setState({quirks: [db.quirks[this.randomNum(0,db.quirks.length-1)], db.quirks[this.randomNum(0,db.quirks.length-1)], db.quirks[this.randomNum(0,db.quirks.length-1)]].join(', ')})
   }
-
   // Set Custom Parameters
   setCustomName(name){
     var customName = document.getElementById('customName').value
@@ -151,7 +148,6 @@ class ProfileCard extends React.Component {
     var customClass = document.getElementById('customClass').value
     this.setState({class: customClass})
   }
-
   toggleCustomFields(){
     // get all customField ids
     var customFields = document.getElementsByClassName('customField')
@@ -164,7 +160,6 @@ class ProfileCard extends React.Component {
       }
     }
   }
-
   generateHistory(max_tokens){
     var addHistory = document.getElementById('customHistory').value
     // this.setState({history: 'Generating history, this might take a while don\'t close the page...'})
@@ -181,7 +176,6 @@ class ProfileCard extends React.Component {
       return response.data.choices[0].text
     })
   }
-
   // Disabled and probably won't do anymore
   generateImage(){
     this.setState({image: 'Generating image...'})
@@ -196,7 +190,6 @@ class ProfileCard extends React.Component {
       return response.data.images[0]
     })
   }
-
   exportToPDF(){
     var doc = new jsPDF(
       {
@@ -218,7 +211,6 @@ class ProfileCard extends React.Component {
     doc.save('a4.pdf')
     
   }
-
   // Utility
   randomNum(min, max){
     if (max == null) {
@@ -227,7 +219,6 @@ class ProfileCard extends React.Component {
     }
     return min + Math.floor(Math.random() * (max - min + 1));
   }
-
   render(){
     return(
       <Container fluid className=' bg-dark text-white rounded-2 p-5'>
@@ -251,14 +242,11 @@ class ProfileCard extends React.Component {
             <hr />
             <div dangerouslySetInnerHTML={{__html: this.state.history}} />
           </div>
-          {/* Component */}
           <CustomField />
-          {/*  */}
-          <Button className='btn customButtons me-2' variant="light" onClick={() => this.regenerateAll()}> Generate again </Button>
-          <Button className='btn customButtons d-block mt-2' variant="light" onClick={() => this.generateHistory(400)} >
-            Generate History
-          </Button>
-          <Button className='btn d-inline d-block mt-2 customButtons' variant="light" onClick={() => this.exportToPDF()}>Export to PDF </Button>
+          <GenerateButtons regenerateAll={()=>this.regenerateAll()} 
+          generateHistory={()=>this.generateHistory(400)}
+          exportToPDF={()=>this.exportToPDF()}
+          />
           </div>
       </Container>
     )
