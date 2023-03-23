@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function CloseBox(props){
     return (
-        <div className=' overflow-auto p-3' id='closeBox'> 
+        <div className=' overflow-auto p-3' style={{display: 'none'}} id='closeBox'> 
             <h1 className=' text-center'> Help Menu </h1>
             <hr />
             <div className=' text-start p-2'>

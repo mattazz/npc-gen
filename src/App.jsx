@@ -75,7 +75,7 @@ function ApiForm(){
   return(
     <animated.div style={springs} className=' mb-2 '>
       <p className=' d-inline
-      '>Open AI API Key (Not Saved): </p>
+      '>Open AI API Key (You data is not saved): </p>
       <input type='password' className='d-block w-75' name="api-key" id="" placeholder='Input OpenAI API key here' value={key} onChange={(e) => setKey(e.target.value)}/>
       <Button className='mt-2 mb-2 btn btn-light d-block' variant='primary' onClick={configureAI}>Configure AI</Button>
       <animated.p style={fadeIn} className={color}>{message}</animated.p>
@@ -228,15 +228,15 @@ class ProfileCard extends React.Component {
           <Button className='btn btn-light d-block' onClick={() => this.toggleCustomFields()}> Toggle Custom Fields </Button>
           <div className="mainCard">
             <h3>Name: {this.state.name}</h3>
-            <CustomParams id='customName' defaultVal='Custom Name' buttonName='customName' click={()=>this.setCustomName()} />
+            <CustomParams id='customName' defaultVal='Custom Name' buttonName='Set Name' click={()=>this.setCustomName()} />
             <h3>Age: {this.state.age}</h3>
-            <CustomParams id='customAge' defaultVal='Custom Age' buttonName='customAge' click={()=>this.setCustomAge()} />
+            <CustomParams id='customAge' defaultVal='Custom Age' buttonName='Set Age' click={()=>this.setCustomAge()} />
             <h3>Race: {this.state.race}</h3>
-            <CustomParams id='customRace' defaultVal='Custom Race' buttonName='customRace' click={()=>this.setCustomRace()} />
+            <CustomParams id='customRace' defaultVal='Custom Race' buttonName='Set Race' click={()=>this.setCustomRace()} />
             <h3>Class: {this.state.class}</h3>
-            <CustomParams id='customClass' defaultVal='Custom Class' buttonName='customClass' click={()=>this.setCustomClass()} />
+            <CustomParams id='customClass' defaultVal='Custom Class' buttonName='Set Class' click={()=>this.setCustomClass()} />
             <h3>Archetype: {this.state.archetype}</h3>
-            <CustomParams id='customArchetype' defaultVal='Custom Archetype' buttonName='customArchetype' click={()=>this.setCustomArchetype()} />
+            <CustomParams id='customArchetype' defaultVal='Custom Archetype' buttonName='Set Archetype' click={()=>this.setCustomArchetype()} />
             <h3>Quirks: {this.state.quirks}</h3>
             <h3>History:</h3>
             <hr />
