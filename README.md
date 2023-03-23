@@ -10,7 +10,7 @@ Uses Open AI chat-gpt to generate a random NPC for you.
 ### to-do:
 
 - [ ] Use Environment Variables in gh pages for default AI key 
-- [ ] Add absolute help slider to header '?' box
+- [x] Add absolute help slider to header '?' box
   
 - [ ] add more customizable options (age, added history (for AI to learn from))
   - [x] Custom Name
@@ -25,7 +25,7 @@ Uses Open AI chat-gpt to generate a random NPC for you.
   - [x] PDF
   - [ ] Word
   - [ ] Excel
-  - [ ] 
+
 - [ ] Custom variables for AI response (ie. Max_Tokens, Temperature, etc)
 - [ ] Eliminate duplicate quirks
 
@@ -33,11 +33,12 @@ Uses Open AI chat-gpt to generate a random NPC for you.
 - [ ] Clean up UI
   - [x] Circle image border
   - [x] Add more styling
-  - [ ] Mobile friendly
+  - [x] Mobile friendly
 
 
 - [ ] Clean up UX
-  - [ ] Loading icons when generating 
-  - [ ] Animations
+  - [x] Loading icons when generating 
+  - [ ] Fix Slime Loading positions
+  - [x] Animations
   
 - [x] Update README gif to latest build
