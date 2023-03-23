@@ -35,7 +35,6 @@ function ApiForm(){
   const [key, setKey] = useState('')
   const [message, setMessage] = useState('Input your Open AI API Key first to continue')
   const [color, setColor] = useState('yellow-text')
-
   const springs = useSpring({
     from: {opacity: 0},
     to: {opacity: 1}
@@ -74,7 +73,6 @@ function ApiForm(){
     
   }
   
-
   return(
     <animated.div style={springs} className=' mb-2 '>
       <p className=' d-inline
